@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ProyectoAndroid</string>
+    <string name="lblBienvenida">Bienvenido</string>
+    <string name="txtCorreo">Correo electronico</string>
+    <string name="btnLogin">Iniciar sesion</string>
+    <string name="btnCerrarSesion">Cerrar sesion</string>
+    <string name="lblRegistrate">Registrate para continuar</string>
 </resources>
