@@ -32,12 +32,14 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void setupListeners() {
+
         binding.btnRegistrar.setOnClickListener(v -> {
             String usuario = binding.txtUsuarioRegistro.getText().toString();
             String email = binding.txtEmailRegistro.getText().toString();
             String contrasena = binding.txtContrasenaRegistro.getText().toString();
             viewModel.registrar(usuario, email, contrasena);
         });
+
     }
 
     private void observarViewModel() {
@@ -69,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                 break;
 
             case INACTIVO:
+
             default:
                 showCargando(false);
                 break;

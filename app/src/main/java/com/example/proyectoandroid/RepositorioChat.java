@@ -18,14 +18,14 @@ public class RepositorioChat {
 
     public RepositorioChat() {
         db = FirebaseFirestore.getInstance();
-        mensajesRef = db.collection("mensajes");
-        usuariosRef = db.collection("usuarios");
+        mensajeRef = db.collection("mensajes");
+        usuarioRef = db.collection("usuarios");
 
     }
     public MutableLiveData<List<Usuario>> obtenerUsuarios() {
         MutableLiveData<List<Usuario>> usuariosLiveData = new MutableLiveData<>();
 
-        usuariosRef.addSnapshotListener((value, error) -> {
+        usuarioRef.addSnapshotListener((value, error) -> {
             if (error != null) {
                 Log.w("RepositorioChat", "Error al obtener usuarios.", error);
                 return;
@@ -48,7 +48,7 @@ public class RepositorioChat {
     public MutableLiveData<List<Mensaje>> obtenerMensajes() {
         MutableLiveData<List<Mensaje>> mensajesLiveData = new MutableLiveData<>();
 
-        mensajesRef.orderBy("timestamp", Query.Direction.ASCENDING).addSnapshotListener((value, error) -> {
+        mensajeRef.orderBy("timestamp", Query.Direction.ASCENDING).addSnapshotListener((value, error) -> {
                     if (error != null) {
                         Log.w("RepositorioChat", "Error al escuchar mensajes.", error);
                         return;
@@ -72,7 +72,7 @@ public class RepositorioChat {
     }
 
     public void enviarMensaje(Mensaje mensaje) {
-        mensajesRef.add(mensaje)
+        mensajeRef.add(mensaje)
                 .addOnSuccessListener(documentReference -> {
                     Log.d("RepositorioChat", "Mensaje enviado con ID: " + documentReference.getId());
                 })

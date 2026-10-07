@@ -88,7 +88,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void volverInicio() {
         Intent intent = new Intent(this, MainActivity.class);
-        // Borra el historial: al darle "atrás" no se vuelve al login
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();

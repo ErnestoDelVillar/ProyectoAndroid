@@ -48,12 +48,17 @@ public class Mensaje  {
     }
 
     public String getReceptorId() {
-
+        return receptorId;
     }
 
     public void setReceptorId(String receptorId) {
 
         this.receptorId = receptorId;
+    }
+
+    public void setReceptorNombre(String receptorNombre) {
+
+        this.receptorNombre = receptorNombre;
     }
 
     public String getTexto() {

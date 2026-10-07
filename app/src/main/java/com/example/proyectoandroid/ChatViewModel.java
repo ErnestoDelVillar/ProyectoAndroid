@@ -5,16 +5,16 @@ import androidx.lifecycle.ViewModel;
 import java.util.List;
 import com.example.proyectoandroid.modelo.Mensaje;
 
-public class ChatViewModel extends Viewmodel{
+public class ChatViewModel extends ViewModel{
     private final RepositorioChat repositorio;
     private LiveData<List<Mensaje>> mensajesLiveData;
 
     public ChatViewModel() {
-        this.repositorio = new Repositorio();
+        this.repositorio = new RepositorioChat();
     }
 
-    public void inicializarChat(String miId, String idReceptor){
-        mensajesLiveData = repositorio.obtenerMensajes(miId, idReceptor);
+    public void inicializarChat(){
+        mensajesLiveData = repositorio.obtenerMensajes();
     }
 
     public LiveData<List<Mensaje>> getMensajesLiveData() {
@@ -27,8 +27,8 @@ public class ChatViewModel extends Viewmodel{
         }
         Mensaje nuevoMensaje = new Mensaje();
         nuevoMensaje.setReceptorId(idReceptor);
-        nuevoMensaje.setReceptorNombre(ReceptorNombre);
-        nuevoMensaje.setTexto(texto.trim);
+        nuevoMensaje.setReceptorNombre(receptorNombre);
+        nuevoMensaje.setTexto(texto.trim());
         nuevoMensaje.setTimestamp(System.currentTimeMillis());
 
         repositorio.enviarMensaje(nuevoMensaje);
