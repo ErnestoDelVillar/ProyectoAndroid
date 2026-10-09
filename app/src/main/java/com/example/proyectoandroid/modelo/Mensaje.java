@@ -4,18 +4,20 @@ public class Mensaje  {
     private String id;
     private String emisorId;
     private String emisorNombre;
-    private String receptorId;
-    private String receptorNombre;
+    private String conversacionId;
+    private String nombreConversacion;
     private String texto;
     private long timestamp;
     public Mensaje(){
 
     }
 
-    public Mensaje(String id, String emisorId, String emisorNombre, String texto, long timestamp) {
+    public Mensaje(String id, String emisorId, String emisorNombre, String conversacionId, String nombreConversacion, String texto, long timestamp) {
         this.id = id;
         this.emisorId = emisorId;
         this.emisorNombre = emisorNombre;
+        this.conversacionId = conversacionId;
+        this.nombreConversacion = nombreConversacion;
         this.texto = texto;
         this.timestamp = timestamp;
     }
@@ -47,18 +49,22 @@ public class Mensaje  {
         this.emisorNombre = emisorNombre;
     }
 
-    public String getReceptorId() {
-        return receptorId;
+    public String getconversacionId() {
+        return conversacionId;
     }
 
-    public void setReceptorId(String receptorId) {
+    public void setconversacionId(String conversacionId) {
 
-        this.receptorId = receptorId;
+        this.conversacionId = conversacionId;
     }
 
-    public void setReceptorNombre(String receptorNombre) {
+    public void setnombreConversacion(String nombreConversacion) {
 
-        this.receptorNombre = receptorNombre;
+        this.nombreConversacion = nombreConversacion;
+    }
+
+    public String getnombreConversacion() {
+        return nombreConversacion;
     }
 
     public String getTexto() {
